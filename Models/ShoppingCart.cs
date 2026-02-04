@@ -10,5 +10,6 @@ namespace Ecommerce2.Models
         [Required]
         public string ? UserId { get; set; }
         public bool IsDeleted { get; set; } = false;
+        public ICollection<CartDetail> CartDetail { get; set; }
     }
 }

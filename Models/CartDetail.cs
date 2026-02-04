@@ -10,7 +10,6 @@ namespace Ecommerce2.Models
         [Required]
         public int ShoppingCartId { get; set; }
         public ShoppingCart ShoppingCart { get; set; }
-        [Required]
         public string? ImageUrl { get; set; }
         public int BookId { get; set; }
         public Book Book { get; set; }
