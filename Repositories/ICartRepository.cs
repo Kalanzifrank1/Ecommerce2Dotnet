@@ -8,6 +8,7 @@ namespace Ecommerce2.Repositories
         Task<int> AddItem(int bookId, int qty);
         Task<int> RemoveItem(int bookId);
         Task<int> GetCartItemCount(string userId = "");
+        Task<bool> DoCheckOut(ChechoutModel model);
         string GetUserId();
     }
 }

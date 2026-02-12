@@ -10,7 +10,7 @@ namespace Ecommerce2.Models
         public Order? Order { get; set; }
         [Required]
         public int BookId { get; set; }
-        public Book? Book { get; set; }
+        public Book Book { get; set; }
         public int Quantity { get; set; }
         public double UnitPrice { get; set; }
     }

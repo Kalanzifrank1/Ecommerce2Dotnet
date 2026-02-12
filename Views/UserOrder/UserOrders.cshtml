@@ -1,0 +1,87 @@
+﻿@model IEnumerable<Order>
+
+@{
+    ViewData["Title"] = "UserOrders";
+}
+
+<a href="/Identity/Account/Manage" class="btn btn-secondary my-2">Back</a>
+
+<div style="width: 100%">
+    @if (Model != null && Model.Count() > 0)
+    {
+       <table class="table table-striped">
+           <tr>
+               <th>OrderDate</th>
+               <th>OrderStatus</th>
+           </tr>
+            @foreach(var order in Model)
+            {
+              <tr>
+                  <td>@order.CreatedAt.ToString("dd-MM-yyyy")</td>
+                  <td>@order.OrderStatus.StatusName</td>
+                    @if(order != null && order.OrderDetails.Count() > 0)
+                    {
+                        <span>Order datails</span>
+                    }
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <h3>No Otrders</h3>
+    }
+</div>
+
+
+
+
+
+@* <h3>My Oders</h3>
+<table class="table table-striped">
+    <tr>
+        <th>Book</th>
+        <th>Image</th>
+        <th>Genre</th>
+        <th>Unit Price</th>
+        <th>Qty</th>
+        <th>Total Price</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Book.BookName</td>
+            <td>
+                @if (!string.IsNullOrEmpty(item.Book.ImageUrl))
+                {
+                    <img src="item.Book.ImageUrl" style="width:80px; height:100px" />
+                }
+                else
+                {
+                    <img src="/images/image.png" style="width:80px; height:100px" / />
+                }
+            </td>
+            <td>
+                @item.Book.GenreName
+            </td>
+            <td>
+                @item.Book.Price * @item.Quanatity
+            </td>
+            <td>
+                @(item.Book.Price* item.Quanatity)
+            </td>
+            <td>
+                <a class="btn btn-info" href="/Cart/AddItem?bookId=@item.BookId&redirect=1">+</a>
+                <a class="btn btn-info" href="/Cart/removeItem?bookId=@item.BookId">-</a>
+            </td>
+        </tr>
+    }
+</table>
+<div class="my-2">
+    <h5>Total:</h5>
+    @(Model.CartDetail.Select(item => item.Book.Price * item.Quanatity).Sum())
+</div>
+<div class="my-2">
+    <a class="btn btn-primary" href="/Cart/Checkout">CheckOut</a>
+</div> *@
